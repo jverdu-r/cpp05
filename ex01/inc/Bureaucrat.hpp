@@ -6,7 +6,7 @@
 /*   By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 15:53:44 by jverdu-r          #+#    #+#             */
-/*   Updated: 2024/11/04 19:47:02 by jverdu-r         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:40:20 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 #include <iostream>
 #include "Form.hpp"
 
+class Form;
+
 class Bureaucrat
 {
     private:
-        const std::string name;
-        int grade;
+        const std::string _name;
+        int _grade;
     public:
         Bureaucrat(void);
         ~Bureaucrat(void);

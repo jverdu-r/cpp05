@@ -6,7 +6,7 @@
 /*   By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:59:45 by jverdu-r          #+#    #+#             */
-/*   Updated: 2024/11/04 18:44:27 by jverdu-r         ###   ########.fr       */
+/*   Updated: 2024/11/05 20:20:13 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main(void)
     }
     catch (std::exception & e)
     {
-        std::cout << e.what() << std::endl;
+        std::cout << "\033[31m" << e.what() << "\033[0m" << std::endl;;
     }
     try
     {
@@ -39,7 +39,7 @@ int main(void)
     }
     catch (Bureaucrat::GradeTooHighException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cout << "\033[31m" << e.what() << "\033[0m" << std::endl;;
     }
     try
     {
@@ -48,6 +48,6 @@ int main(void)
     }
     catch (Bureaucrat::GradeTooLowException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cout << "\033[31m" << e.what() << "\033[0m" << std::endl;;
     }
 }

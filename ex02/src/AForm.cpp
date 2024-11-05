@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,72 +10,87 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Form.hpp"
+#include "../inc/AForm.hpp"
 
-Form::Form(void) : _signed(false), _signGrade(1), _execGrade(1){}
+AForm::AForm(void) : _signed(false), _signGrade(1), _execGrade(1){}
 
-Form::~Form(void){}
+AForm::~AForm(void){}
 
-Form::Form(std::string str, int signGrade, int execGrade) : _name(str), _signed(false), _signGrade(signGrade), _execGrade(execGrade)
+AForm::AForm(std::string str, int signGrade, int execGrade) : _name(str), _signed(false), _signGrade(signGrade), _execGrade(execGrade)
 {
     if (signGrade < 1 || execGrade < 1)
-        throw Form::GradeTooLowException();
+        throw AForm::GradeTooLowException();
     if (signGrade > 150 || execGrade > 150)
-        throw Form::GradeTooHighException();
+        throw AForm::GradeTooHighException();
 }
 
-Form::Form(const Form& origin) : _name(origin.getName()), _signed(origin.getSigned()), _signGrade(origin.getSignGrade()), _execGrade(origin.getExecGrade())
+AForm::AForm(const AForm& origin) : _name(origin.getName()), _signed(origin.getSigned()), _signGrade(origin.getSignGrade()), _execGrade(origin.getExecGrade())
 {
     return;
 }
 
-Form &Form::operator=(const Form &origin)
+AForm &AForm::operator=(const AForm &origin)
 {
     if (this == &origin) //i used this cuase you cannot do deep copy of constant attributes
         return(*this);
     return (*this);
 }
 
-int Form::getSignGrade(void) const
+int AForm::getSignGrade(void) const
 {
     return (this->_signGrade);
 }
 
-int Form::getExecGrade(void) const
+int AForm::getExecGrade(void) const
 {
     return (this->_execGrade);
 }
 
-std::string Form::getName(void) const
+std::string AForm::getName(void) const
 {
     return (this->_name);
 }
 
-bool Form::getSigned(void) const
+bool AForm::getSigned(void) const
 {
 
     return (this->_signed);
 
 }
 
-void Form::beSigned(const Bureaucrat &bureu)
+void AForm::beSigned(const Bureaucrat &bureu)
 {
     if (bureu.getGrade() < this->_signGrade)
-        throw Form::GradeTooLowException();
+        throw AForm::GradeTooLowException();
     this->_signed = true;
 }
 
-const char* Form::GradeTooHighException::what() const throw()
+void AForm::execute(Bureaucrat const &executor)
+{
+    if (executor.getGrade() > this->getExecGrade())
+        throw AForm::GradeTooLowException();
+    if (!this->getSigned())
+    {
+        std::cout << "\033[33m" << "couldn't execute form because it's not signed" << "\033[0m" << std::endl;
+        return ;
+    }
+    this->action();
+    std::cout << executor.getName() << " executed " << this->getName() << std::endl;
+}
+
+void AForm::action(void) const{}
+
+const char* AForm::GradeTooHighException::what() const throw()
 {
     return ("the grade is too high");
 }
 
-const char* Form::GradeTooLowException::what() const throw()
+const char* AForm::GradeTooLowException::what() const throw()
 {
     return ("the grade is too low");
 }
 
-std::ostream &operator<<(std::ostream& os, const Form &form)
+std::ostream &operator<<(std::ostream& os, const AForm &form)
 {
     os << "form: " << form.getName() << std::endl;
     os << "grade to sign: " << form.getSignGrade() << std::endl;

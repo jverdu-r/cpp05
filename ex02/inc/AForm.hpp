@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 18:47:57 by jverdu-r          #+#    #+#             */
-/*   Updated: 2024/11/05 16:01:15 by jverdu-r         ###   ########.fr       */
+/*   Updated: 2024/11/05 20:06:21 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,26 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
-    private:
+    protected:
         const std::string _name;
         bool        _signed;
         const int _signGrade;
         const int _execGrade;
     public:
-        Form(void);
-        ~Form(void);
-        Form(std::string str, int signGrade, int execGrade);
-        Form(const Form& origin);
-        Form &operator=(const Form &origin);
+        AForm(void);
+        virtual~AForm(void);
+        AForm(std::string str, int signGrade, int execGrade);
+        AForm(const AForm& origin);
+        AForm &operator=(const AForm &origin);
         int getSignGrade(void) const;
         int getExecGrade(void) const;
         std::string getName(void) const;
         bool getSigned(void) const;
         void beSigned(const Bureaucrat &bureu);
+        void execute(const Bureaucrat &executor);
+        virtual void action(void) const = 0;
         class GradeTooHighException : std::exception
         {
             public:
@@ -47,5 +49,5 @@ class Form
         };
 };
 
-std::ostream &operator<<(std::ostream& os, const Form &form);
+std::ostream &operator<<(std::ostream& os, const AForm &form);
 #endif
