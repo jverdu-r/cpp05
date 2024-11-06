@@ -5,8 +5,20 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/11/06 18:40:57 by jverdu-r          #+#    #+#              #
+#    Updated: 2024/11/06 19:06:22 by jverdu-r         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 19:18:48 by jverdu-r          #+#    #+#              #
-#    Updated: 2024/11/06 18:41:04 by jverdu-r         ###   ########.fr        #
+#    Updated: 2024/11/06 18:16:41 by jverdu-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +31,7 @@ SRC = src/Bureaucrat.cpp \
 		src/ShrubberyCreationForm.cpp \
 		src/RobotomyRequestForm.cpp \
 		src/PresidentialPardonForm.cpp \
+		src/Intern.cpp \
 		src/main.cpp
 
 TARGET = Bureaucrat
@@ -29,7 +42,7 @@ $(TARGET): $(SRC)
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
 
 clean:
-		rm -f $(TARGET) home_shrubbery
+		rm -f $(TARGET)
 
 re: all
 
