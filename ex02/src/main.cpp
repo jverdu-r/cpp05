@@ -6,7 +6,7 @@
 /*   By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 19:13:24 by jverdu-r          #+#    #+#             */
-/*   Updated: 2024/11/06 17:30:48 by jverdu-r         ###   ########.fr       */
+/*   Updated: 2024/11/06 18:02:27 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "../inc/Bureaucrat.hpp"
 #include "../inc/ShrubberyCreationForm.hpp"
 #include "../inc/RobotomyRequestForm.hpp"
+#include "../inc/PresidentialPardonForm.hpp"
 
 int main(void)
 {
@@ -67,6 +68,29 @@ int main(void)
             std::cout << "\033[31m" <<  e.what() << "\033[0m" << std::endl;
         }
         std::cout <<"\033[1;33m" << "--Robotomy test end--" << "\033[0m" <<std::endl;
+    }
+    {
+        std::cout <<"\033[1;33m" << "--Presidential pardon test start--" << "\033[0m" <<std::endl;
+        try 
+        {
+            
+            Bureaucrat b1("Bob", 4);
+            Bureaucrat b2("Jhon", 24);
+            PresidentialPardonForm PPF(b1.getName());
+            b2.signForm(PPF);
+            b1.executeForm(PPF);
+
+            b2.executeForm(PPF);
+        }
+	    catch (PresidentialPardonForm::GradeTooHighException &e)
+        {
+            std::cout << "\033[31m" << e.what() << "\033[0m" << std::endl;
+        }
+        catch (PresidentialPardonForm::GradeTooLowException &e)
+        {
+            std::cout << "\033[31m" <<  e.what() << "\033[0m" << std::endl;
+        }
+        std::cout <<"\033[1;33m" << "--Presidential pardon test end--" << "\033[0m" <<std::endl;
     }
     return (0);
 }
