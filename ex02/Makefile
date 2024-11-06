@@ -6,7 +6,7 @@
 #    By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 19:18:48 by jverdu-r          #+#    #+#              #
-#    Updated: 2024/11/05 19:19:23 by jverdu-r         ###   ########.fr        #
+#    Updated: 2024/11/06 17:06:20 by jverdu-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ CXXFLAGS = -std=c++98 -Wall -Werror -Wextra
 SRC = src/Bureaucrat.cpp \
 		src/AForm.cpp \
 		src/ShrubberyCreationForm.cpp \
+		src/RobotomyRequestForm.cpp \
 		src/main.cpp
 
 TARGET = Bureaucrat

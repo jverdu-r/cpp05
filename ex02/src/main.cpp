@@ -6,13 +6,14 @@
 /*   By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 19:13:24 by jverdu-r          #+#    #+#             */
-/*   Updated: 2024/11/05 20:32:48 by jverdu-r         ###   ########.fr       */
+/*   Updated: 2024/11/06 17:30:48 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/AForm.hpp"
 #include "../inc/Bureaucrat.hpp"
 #include "../inc/ShrubberyCreationForm.hpp"
+#include "../inc/RobotomyRequestForm.hpp"
 
 int main(void)
 {
@@ -43,6 +44,29 @@ int main(void)
             std::cout << line << std::endl;
         file.close();
         std::cout <<"\033[1;33m" << "--Shrubbery test end--" << "\033[0m" <<std::endl;
+    }
+    {
+        std::cout <<"\033[1;33m" << "--Robotomy test start--" << "\033[0m" <<std::endl;
+        try 
+        {
+            
+            Bureaucrat b1("Bob", 43);
+            Bureaucrat b2("Jhon", 71);
+            RobotomyRequestForm RRF(b1.getName());
+            b2.signForm(RRF);
+            b1.executeForm(RRF);
+
+            b2.executeForm(RRF);
+        }
+	    catch (RobotomyRequestForm::GradeTooHighException &e)
+        {
+            std::cout << "\033[31m" << e.what() << "\033[0m" << std::endl;
+        }
+        catch (RobotomyRequestForm::GradeTooLowException &e)
+        {
+            std::cout << "\033[31m" <<  e.what() << "\033[0m" << std::endl;
+        }
+        std::cout <<"\033[1;33m" << "--Robotomy test end--" << "\033[0m" <<std::endl;
     }
     return (0);
 }

@@ -60,14 +60,14 @@ bool AForm::getSigned(void) const
 
 void AForm::beSigned(const Bureaucrat &bureu)
 {
-    if (bureu.getGrade() < this->_signGrade)
+    if (bureu.getGrade() > this->_signGrade)
         throw AForm::GradeTooLowException();
     this->_signed = true;
 }
 
 void AForm::execute(Bureaucrat const &executor)
 {
-    if (executor.getGrade() > this->getExecGrade())
+    if (executor.getGrade() > this->_execGrade)
         throw AForm::GradeTooLowException();
     if (!this->getSigned())
     {

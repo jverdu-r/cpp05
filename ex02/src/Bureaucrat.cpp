@@ -6,7 +6,7 @@
 /*   By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:07:33 by jverdu-r          #+#    #+#             */
-/*   Updated: 2024/11/05 20:21:54 by jverdu-r         ###   ########.fr       */
+/*   Updated: 2024/11/06 17:30:19 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,11 @@ void Bureaucrat::executeForm(AForm &form)
     try 
     {
         form.execute(*this);
+        std::cout << "\033[32m" << this->getName() << " executed form " << form.getName() << "\033[0m" << std::endl;
     }
-    catch (std::exception & e) 
+    catch (AForm::GradeTooLowException & e) 
     {
-        std::cout << this->getName() << " couldn't execute "
-                  << form.getName() << " because " << e.what() << std::endl;
+        std::cout << this->getName() << " couldn't execute "<< form.getName() << " because " << e.what() << std::endl;
     }
 }
 
