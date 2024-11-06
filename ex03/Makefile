@@ -6,7 +6,7 @@
 #    By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/06 18:40:57 by jverdu-r          #+#    #+#              #
-#    Updated: 2024/11/06 19:06:22 by jverdu-r         ###   ########.fr        #
+#    Updated: 2024/11/06 19:28:51 by jverdu-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ $(TARGET): $(SRC)
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
 
 clean:
-		rm -f $(TARGET)
+		rm -f $(TARGET) home_shrubbery
 
 re: all
 

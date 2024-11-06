@@ -6,7 +6,7 @@
 /*   By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 18:16:51 by jverdu-r          #+#    #+#             */
-/*   Updated: 2024/11/06 19:03:26 by jverdu-r         ###   ########.fr       */
+/*   Updated: 2024/11/06 19:27:31 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ AForm* Intern::makeForm(std::string formName, std::string target)
         std::cout << "\033[31m" << formName << " form not found" << "\033[0m" << std::endl;
     std::cout << form << std::endl;*/
 
-    std::string forms[] = {"shubbery creation", "robotomy request", "presidential pardon"};
+    std::string forms[] = {"shrubbery creation", "robotomy request", "presidential pardon"};
     int index = -1;
     AForm *form = NULL;
     for (int i = 0; i < 3; i++)
