@@ -6,7 +6,7 @@
 #    By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 19:18:48 by jverdu-r          #+#    #+#              #
-#    Updated: 2024/11/06 18:41:04 by jverdu-r         ###   ########.fr        #
+#    Updated: 2024/11/28 16:30:28 by jverdu-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,14 +23,17 @@ SRC = src/Bureaucrat.cpp \
 
 TARGET = Bureaucrat
 
-all: $(TARGET)
+LDFLAGS = -std=c++98
+RM = /bin/rm -rf
+OBJ = $(SRC:.cpp=.o)
 
-$(TARGET): $(SRC)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
+$(NAME): $(OBJ)
+	c++ $(LDFLAGS) $(OBJ) -o $(NAME)
 
+all: $(NAME)
 clean:
-		rm -f $(TARGET) home_shrubbery
-
-re: all
-
-PHONY: all clean re
+	$(RM) $(OBJ)
+fclean: clean
+	$(RM) $(NAME)
+re: fclean all
+.PHONY: all clean fclean re

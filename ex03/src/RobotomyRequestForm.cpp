@@ -6,7 +6,7 @@
 /*   By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:22:51 by jverdu-r          #+#    #+#             */
-/*   Updated: 2024/11/06 17:31:37 by jverdu-r         ###   ########.fr       */
+/*   Updated: 2024/11/28 17:01:44 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &origin): AFo
 
 std::string RobotomyRequestForm::getTarget(void)
 {
-    return(this->_target);
+    if (this->_target.empty())
+        return (NULL);
+    else
+        return(this->_target);
 }
 
 void RobotomyRequestForm::action(void) const

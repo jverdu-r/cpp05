@@ -38,24 +38,31 @@ AForm &AForm::operator=(const AForm &origin)
 
 int AForm::getSignGrade(void) const
 {
-    return (this->_signGrade);
+    if (this->_signGrade)
+        return (this->_signGrade);
+    else
+        return (0);
 }
 
 int AForm::getExecGrade(void) const
 {
-    return (this->_execGrade);
+    if (this->_execGrade)
+        return (this->_execGrade);
+    else
+        return (0);
 }
 
 std::string AForm::getName(void) const
 {
-    return (this->_name);
+    if (this->_name.empty())
+        return (NULL);
+    else
+        return (this->_name);
 }
 
 bool AForm::getSigned(void) const
 {
-
     return (this->_signed);
-
 }
 
 void AForm::beSigned(const Bureaucrat &bureu)

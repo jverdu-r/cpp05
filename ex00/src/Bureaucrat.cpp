@@ -6,7 +6,7 @@
 /*   By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:07:33 by jverdu-r          #+#    #+#             */
-/*   Updated: 2024/11/04 19:45:05 by jverdu-r         ###   ########.fr       */
+/*   Updated: 2024/11/28 16:54:05 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,18 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 
 std::string Bureaucrat::getName(void) const
 {
-    return(this->_name);
+    if (this->_name.empty())
+        return (NULL);
+    else
+        return (this->_name);
 }
 
 int Bureaucrat::getGrade(void) const
 {
-    return (this->_grade);
+    if (this->_grade)
+        return (this->_grade);
+    else
+        return (0);
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &origin)

@@ -6,7 +6,7 @@
 /*   By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:56:33 by jverdu-r          #+#    #+#             */
-/*   Updated: 2024/11/06 18:03:36 by jverdu-r         ###   ########.fr       */
+/*   Updated: 2024/11/28 17:00:34 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &ori
 
 std::string PresidentialPardonForm::getTarget(void)
 {
-    return(this->_target);
+    if (this->_target.empty())
+        return (NULL);
+    else
+        return(this->_target);
 }
 
 void PresidentialPardonForm::action(void) const

@@ -6,7 +6,7 @@
 /*   By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:58:10 by jverdu-r          #+#    #+#             */
-/*   Updated: 2024/11/05 20:16:17 by jverdu-r         ###   ########.fr       */
+/*   Updated: 2024/11/28 17:01:52 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &origin
 
 std::string ShrubberyCreationForm::getTarget(void)
 {
-    return(this->_target);
+    if (this->_target.empty())
+        return (NULL);
+    else
+        return(this->_target);
 }
 
 void ShrubberyCreationForm::action(void) const
