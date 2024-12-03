@@ -21,7 +21,7 @@ SRC = src/Bureaucrat.cpp \
 		src/PresidentialPardonForm.cpp \
 		src/main.cpp
 
-TARGET = Bureaucrat
+NAME = Bureaucrat
 
 LDFLAGS = -std=c++98
 RM = /bin/rm -rf
